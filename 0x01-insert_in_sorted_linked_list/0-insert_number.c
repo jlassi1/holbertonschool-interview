@@ -1,15 +1,15 @@
 #include "lists.h"
 
 /**
- * insert_node -  inserts a number into a sorted singly linked list.
- * @head: the head of the linked list
- * @number: the number data of the new node
+ *insert_node-inserts a number into a sorted singly linked list.
+ *@head: the head of the linked list
+ *@number: the number data of the new node
  *
- * Return: the new node
+ *Return: the new node
  */
 listint_t *insert_node(listint_t **head, int number){
 if(!*head)
-   return(NULL);
+return(NULL);
 listint_t *tmp = *head, *node;
 
 node = malloc(sizeof(listint_t));
