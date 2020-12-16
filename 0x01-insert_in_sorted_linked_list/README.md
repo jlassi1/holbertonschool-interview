@@ -1,0 +1,16 @@
+# 0x01-insert_in_sorted_linked_list
+
+
+## Tasks
+
+0. Insert in sorted linked list mandatory
+
+Technical interview preparation:
+
+    You are not allowed to google anything
+    Whiteboard first
+
+Write a function in C that inserts a number into a sorted singly linked list.
+
+    Prototype: listint_t *insert_node(listint_t **head, int number);
+    Return: the address of the new node, or NULL if it failed
