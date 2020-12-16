@@ -19,6 +19,7 @@ node->next = NULL;
 if(!(*head) || (*head)->n > number)
 {
 node->next = *head;
+*head = node;
 return(node);
 }
 while (tmp->next->n < number)
@@ -30,6 +31,6 @@ break;
 
 node->next = tmp->next;
 tmp->next = node;
-return(tmp);
+return(node);
 
 }
