@@ -37,5 +37,4 @@ while (tmp->next->n < number)
 	node->next = tmp->next;
 	tmp->next = node;
 return(node);
-
 }
