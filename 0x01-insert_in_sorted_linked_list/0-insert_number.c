@@ -18,16 +18,18 @@ node->n = number;
 node->next = NULL;
 if(!(*head) || (*head)->n > number)
 {
-node->next = tmp;
+node->next = *head;
 return(node);
 }
 while (tmp->next->n < number)
 {
 tmp = tmp->next;
+if(tmp->next == NULL)
+break;
 }
 
 node->next = tmp->next;
 tmp->next = node;
-return(node);
+return(tmp);
 
 }
