@@ -1,10 +1,10 @@
 #include "binary_trees.h"
 /**
- * swap - sawpe the value of 2 nodes
- * @n1: node 1
- * @n2: node2
+ *swap- sawping the value of 2 nodes
+ *@n1: node 1
+ *@n2: node2
  * 
- * Return: void
+ *Return: void
  */
 
 void swap(heap_t* n1, heap_t* n2)
@@ -65,8 +65,6 @@ heap_t *insert_node(heap_t *node, size_t lvl, int value)
 
 	}
 
-	
-
 	n1 = insert_node(node->left, lvl, value);
 
 	if (!n1)
@@ -75,7 +73,6 @@ heap_t *insert_node(heap_t *node, size_t lvl, int value)
 		return (n1);
 	return (n2);
 }
-
 
 /**
  *binary_tree_height- measures the height of a binary tree
