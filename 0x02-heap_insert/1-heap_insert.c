@@ -37,7 +37,7 @@ return (d);
  * insert_node - functin to insert a node in the right position
  * @node: pointer to node
  * @lvl: the insertion node level
- * @m: integer
+ * @value: integer
  *
  * Return: a pointer to the node to insert
  */
