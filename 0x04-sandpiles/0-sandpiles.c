@@ -8,7 +8,7 @@
 */
 bool verification(int a[3][3])
 {
-int i = 0, j = 0;
+int i, j;
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
@@ -29,7 +29,7 @@ return (true);
 */
 void print(int a[3][3])
 {
-int i = 0, j = 0;
+int i, j;
 	printf("=\n");
 	for (i = 0; i < 3; i++)
 	{
@@ -54,7 +54,7 @@ int i = 0, j = 0;
 */
 void stable(int a[3][3], int tmp[3][3])
 {
-int i = 0, j = 0;
+int i, j;
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
 			tmp[i][j] = a[i][j];
@@ -90,7 +90,7 @@ int i = 0, j = 0;
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 int tmp[3][3];
-int i = 0, j = 0;
+int i, j;
 	for (i = 0; i < 3; i++)
 		for (j = 0; j < 3; j++)
 			grid1[i][j] += grid2[i][j];
