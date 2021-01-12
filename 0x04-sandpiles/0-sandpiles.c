@@ -8,16 +8,16 @@
 */
 bool verification(int a[3][3])
 {
-for (int i = 0; i < 3; i++)
-{
-for (int j = 0; j < 3; j++)
-{
-if (a[i][j] > 3)
-{
-return (false);
-}
-}
-}
+int i = 0, j = 0;
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (a[i][j] > 3)
+				return (false);
+
+		}
+	}
 return (true);
 }
 /**
@@ -29,19 +29,20 @@ return (true);
 */
 void print(int a[3][3])
 {
-printf("=\n");
-for (int i = 0; i < 3; i++)
-{
-for (int j = 0; j < 3; j++)
-{
-printf("%d", a[i][j]);
-if (j < 2)
-{
-printf(" ");
-}
-}
-printf("\n");
-}
+int i = 0, j = 0;
+	printf("=\n");
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			printf("%d", a[i][j]);
+			if (j < 2)
+				printf(" ");
+
+		}
+
+		printf("\n");
+	}
 }
 /**
  *stable- stable the sum of two grid
@@ -53,40 +54,30 @@ printf("\n");
 */
 void stable(int a[3][3], int tmp[3][3])
 {
-for (int i = 0; i < 3; i++)
-{
-for (int j = 0; j < 3; j++)
-{
-tmp[i][j] = a[i][j];
-}
-}
-for (int i = 0; i < 3; i++)
-{
-for (int j = 0; j < 3; j++)
-{
+int i = 0, j = 0;
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 3; j++)
+			tmp[i][j] = a[i][j];
 
-if (tmp[i][j] >= 4)
-{
-a[i][j] = a[i][j] - 4;
-if (i >= 1)
-{
-a[i - 1][j] += 1;
-}
-if (i <= 1)
-{
-a[i + 1][j] += 1;
-}
-if (j >= 1)
-{
-a[i][j - 1] += 1;
-}
-if (j <= 1)
-{
-a[i][j + 1] += 1;
-}
-}
-}
-}
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+
+			if (tmp[i][j] >= 4)
+			{
+				a[i][j] = a[i][j] - 4;
+				if (i >= 1)
+					a[i - 1][j] += 1;
+				if (i <= 1)
+					a[i + 1][j] += 1;
+				if (j >= 1)
+					a[i][j - 1] += 1;
+				if (j <= 1)
+					a[i][j + 1] += 1;
+			}
+		}
+	}
 }
 /**
 *sandpiles_sum-computes the sum of two sandpiles
@@ -99,17 +90,14 @@ a[i][j + 1] += 1;
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 int tmp[3][3];
+int i = 0, j = 0;
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 3; j++)
+			grid1[i][j] += grid2[i][j];
 
-for (int i = 0; i < 3; i++)
-{
-for (int j = 0; j < 3; j++)
-{
-grid1[i][j] += grid2[i][j];
-}
-}
-while (!verification(grid1))
-{
-print(grid1);
-stable(grid1, tmp);
-}
+	while (!verification(grid1))
+	{
+		print(grid1);
+		stable(grid1, tmp);
+	}
 }
