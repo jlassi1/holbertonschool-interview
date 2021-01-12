@@ -1,6 +1,6 @@
 #include "sandpiles.h"
 /**
- *verification-verification of stabilisation
+*verification-verification of stabilisation
 *
 *@a: grid to check it
 *
@@ -21,7 +21,7 @@ int i, j;
 return (true);
 }
 /**
- *print-print the grid
+*print-print the grid
 *@a: the grid to print
 *
 *
@@ -45,7 +45,7 @@ int i, j;
 	}
 }
 /**
- *stable- stable the sum of two grid
+*stable- stable the sum of two grid
 *
 *@a: grid1 to change
 *@tmp: grid2 to compaire with it
