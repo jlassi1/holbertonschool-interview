@@ -7,7 +7,7 @@
  */
 int is_palindrome(listint_t **head)
 {
-listint_t *first, *right;
+listint_t *left, *right;
 
 	if (!(*head) || (!(*head)->next))
 		return (1);
@@ -16,13 +16,13 @@ right = *head;
 	while (right->next)
 		right = right->next;
 
-first = *head;
+left = *head;
 
-	while (right >= first)
+	while (right >= left)
 	{
-		if (first->n == right->n)
+		if (left->n == right->n)
 		{
-			first = first->next;
+			left = left->next;
 			right -= 2;
 		}
 		else
