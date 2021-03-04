@@ -13,15 +13,12 @@
 void menger(int level)
 {
 int count = pow(3, level), i, j, x, y;
-char first_sponge[] = "###\n# #\n###";
+
 char s = ' ';
 	if (level < 0)
 		return;
 	if (level == 0)
 		printf("#\n");
-
-	if (count == 3)
-		printf("%s\n", first_sponge);
 
 	else
 		for (i = 0; i < count; i++)
