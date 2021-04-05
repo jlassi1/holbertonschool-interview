@@ -24,5 +24,5 @@ request({ url: (`https://swapi-api.hbtn.io/api/films/${ID}/`), json: true }, fun
       const id = element.split('/')[5];
       console.log(names[id]);
     });
-  });
+  }, 2000);
 });
