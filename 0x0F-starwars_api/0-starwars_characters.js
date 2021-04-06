@@ -16,13 +16,13 @@ request({ url: (`https://swapi-api.hbtn.io/api/films/${ID}/`), json: true }, fun
       const id = k.split('/')[5];
       // console.log(id);
       names[id] = json.name;
-      // console.log(names[id]);
-    });
-  }
-  setTimeout(function () {
-    json.characters.forEach(element => {
-      const id = element.split('/')[5];
       console.log(names[id]);
-    });
-  }, 2000);
+    }, 2000);
+  }
+  // setTimeout(function () {
+  //   json.characters.forEach(element => {
+  //     const id = element.split('/')[5];
+  //     console.log(names[id]);
+  //   });
+  // }, 2000);
 });
