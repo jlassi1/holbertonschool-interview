@@ -43,7 +43,7 @@ if (max != i)
 {
 	swap(&arr[i], &arr[max]);
 	print_array(arr, size);
-	siftDown(arr, i, max, size);
+	siftDown(arr, n, max, size);
 
 }
 return;
