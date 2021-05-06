@@ -12,23 +12,26 @@ def count_words(subreddit, word_list):
     word_list = [str.lower() for str in word_list]
 
     my_list = get_hot_list(subreddit)
+    print(my_list)
     my_dict = {}
 
     for word in word_list:
         my_dict[word] = 0
+    try:
+        for title in my_list:
+            title_split = title.split(" ")
 
-    for title in my_list:
-        title_split = title.split(" ")
+            for iter in title_split:
+                for iter_split in word_list:
+                    if iter.lower() == iter_split.lower():
+                        my_dict[iter_split] += 1
 
-        for iter in title_split:
-            for iter_split in word_list:
-                if iter.lower() == iter_split.lower():
-                    my_dict[iter_split] += 1
-
-    for key, val in sorted(my_dict.items(), key=lambda x: x[1],
-                           reverse=True):
-        if val != 0:
-            print("{}: {}".format(key, val))
+        for key, val in sorted(my_dict.items(), key=lambda x: x[1],
+                               reverse=True):
+            if val != 0:
+                print("{}: {}".format(key, val))
+    except Exception:
+        return
 
 
 def get_hot_list(subreddit, hot_list=[], after=None):
@@ -44,11 +47,12 @@ def get_hot_list(subreddit, hot_list=[], after=None):
         if prox is not None:
             get_hot_list(subreddit, hot_list, prox)
     else:
-        return (None)
+        return None
     try:
         dic_json = res.json()
         for title_ in dic_json['data']['children']:
             hot_list.append(title_['data']['title'])
+            # print(hot_list)
         return hot_list
     except Exception:
         return None
