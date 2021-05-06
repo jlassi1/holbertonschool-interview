@@ -12,7 +12,7 @@ def count_words(subreddit, word_list):
     word_list = [str.lower() for str in word_list]
 
     my_list = get_hot_list(subreddit)
-    print(my_list)
+    # print(my_list)
     my_dict = {}
 
     for word in word_list:
