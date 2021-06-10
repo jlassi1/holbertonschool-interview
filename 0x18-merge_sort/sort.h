@@ -8,5 +8,7 @@
 
 void print_array(const int *array, size_t size);
 void merge_sort(int *array, size_t size);
+void split_merge(int *array, int *arr, int first, int last);
+void merging(int *array, int *arr, int first, int mid, int last);
 
 #endif /* _SORT_H_ */
