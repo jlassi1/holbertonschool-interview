@@ -14,13 +14,16 @@ def makeChange(coins, total):
     y = total
     x = 0
     while y >= 0 and i < len(coins):
-        if y / coins[i] >= 1:
-            remain = y // coins[i]
-            # x.append(y*remain//coins[i])
-            y = y % coins[i]
-            remains.append(remain)
-        else:
-            i += 1
+        try:
+            if y / coins[i] >= 1:
+                remain = y // coins[i]
+                # x.append(y*remain//coins[i])
+                y = y % coins[i]
+                remains.append(remain)
+            else:
+                i += 1
+        except Exception:
+            return -1
     # if sum(x) != total:
     #     return (-1)
     for i in range(len(remains)):
