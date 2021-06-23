@@ -10,7 +10,6 @@ def makeChange(coins, total):
     if (total <= 0):
         return 0
     coins.sort(reverse=True)
-    remains = []
     remain = 0
     i = 0
     y = total
@@ -18,20 +17,15 @@ def makeChange(coins, total):
     while y >= 0 and i < len(coins):
         try:
             if y / coins[i] >= 1:
-                remain = y // coins[i]
+                remain += y // coins[i]
                 # x.append(y*remain//coins[i])
                 y = y % coins[i]
-                remains.append(remain)
             else:
                 i += 1
         except Exception:
             return -1
     # if sum(x) != total:
     #     return (-1)
-    for i in range(len(remains)):
-        if x == total:
-            break
-        x += remains[i]*coins[i]
-    if x != total:
+    if y != 0:
         return (-1)
-    return sum(remains)
+    return remain
