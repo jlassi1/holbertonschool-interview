@@ -11,31 +11,29 @@
  */
 List *add_node_end(List **list, char *str)
 {
-	if (!list || !str)
-		return (NULL);
-	    
-	List *new_node = malloc(sizeof(List));
-	new_node->str = malloc( strlen( str ) + 1 );
-	if (!new_node || ! new_node->str)
-		return (NULL);
-	new_node->str = str; 
+	List *tmp, *newNode;
 
+	newNode = malloc(sizeof(List));
+	if (!newNode)
+		return (NULL);
+	newNode->str = str;
 	if (!(*list))
 	{
-		*list = new_node;
-		new_node->prev = new_node;
-		new_node->next = new_node;
-		return new_node;
+		*list = newNode;
+		newNode->next = newNode;
+		newNode->prev = newNode;
 	}
-
-	new_node->prev = (*list)->prev;
-	new_node->next = *list;
-	new_node->prev->next = new_node;
-	new_node->next->prev = new_node;
-	*list =	new_node;
-	return new_node;
-
+	else
+	{
+		tmp = *list;
+		newNode->next = tmp;
+		newNode->prev = tmp->prev;
+		tmp->prev->next = newNode;
+		tmp->prev = newNode;
+	}
+	return (newNode);
 }
+
 
 /**
  *add_node_begin- adds a new node at the beginning of a double circular linked list
@@ -48,29 +46,26 @@ List *add_node_end(List **list, char *str)
  */
 List *add_node_begin(List **list, char *str)
 {
-	if (!list || !str)
-		return (NULL);
-	    
-List *new_node = malloc(sizeof(List));
-new_node->str = malloc( strlen( str ) + 1 );
-	if (!new_node || ! new_node->str)
-		return (NULL);
-	new_node->str = str; 
+	List *tmp, *newNode;
 
-	if (!(*list))
+	newNode = malloc(sizeof(List));
+	if (!newNode)
+		return (NULL);
+	newNode->str = str;
+	if (!*list)
 	{
-		*list = new_node;
-		new_node->prev = new_node;
-		new_node->next = new_node;
-		return new_node;
+		*list = newNode;
+		newNode->next = newNode;
+		newNode->prev = newNode;
 	}
-
-	new_node->prev = (*list)->prev;
-	new_node->next = *list;
-	new_node->prev->next = new_node;
-	new_node->next->prev = new_node;
-
-	return new_node;
-
+	else
+	{
+		tmp = *list;
+		newNode->next = tmp;
+		newNode->prev = tmp->prev;
+		tmp->prev->next = newNode;
+		tmp->prev = newNode;
+		*list = newNode;
+	}
+	return (newNode);
 }
-
