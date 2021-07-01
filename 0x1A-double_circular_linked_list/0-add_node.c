@@ -17,9 +17,9 @@ List *new_start = NULL;
 	if (!new_start)
 		return (NULL);
 	new_start->str = strdup(str);
-	if (new_start->str == NULL)
+	if (!new_start->str)
 		return (NULL);
-	if (list == NULL || (*list) == NULL)
+	if (!list || !(*list))
 	{
 		*list = new_start;
 		(*list)->next = *list;
@@ -52,9 +52,9 @@ List *temp;
 	if (!new_end)
 		return (NULL);
 	new_end->str = strdup(str);
-	if (new_end->str == NULL)
+	if (!new_end->str)
 		return (NULL);
-	if (list == NULL || (*list) == NULL)
+	if (!list || !(*list))
 	{
 		*list = new_end;
 		(*list)->next = *list;
@@ -74,4 +74,3 @@ List *temp;
 	new_end->next->prev = new_end;
 	return  (new_end);
 }
-
