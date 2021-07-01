@@ -27,4 +27,3 @@ List *add_node_begin(List **list, char *str);
 
 
 #endif /* LISTS_H */
-
