@@ -4,7 +4,7 @@
  *add_node_begin- adds a new node at the beginning
  *of a double circular linked list
  *
- *@list: the list to modify 
+ *@list: the list to modify
  *
  *@str: the string to copy into the new node
  *
@@ -39,7 +39,7 @@ List *new_start = NULL;
  *add_node_end- adds a new node at the end
  *of a double circular linked list
  *
- *@list: the list to modify 
+ *@list: the list to modify
  *
  *@str: the string to copy into the new node
  *
