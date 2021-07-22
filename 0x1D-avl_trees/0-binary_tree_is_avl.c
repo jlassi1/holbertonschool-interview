@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 /**
- * max- fucntion return the max int
+ * max - fucntion return the max int
  * @a: int
  * @b: int
  * Return: max integer between a and b
