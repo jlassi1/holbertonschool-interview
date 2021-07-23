@@ -7,7 +7,7 @@
  */
 int max(int a, int b)
 {
-	return (a >= b) ? a : b;
+	return ((a >= b) ? a : b);
 }
 /**
  * height - Measures the height of a binary tree
@@ -22,7 +22,7 @@ int height(binary_tree_t *tree)
 		return (0);
 	hl = height(tree->left);
 	hr = height(tree->right);
-	return 1 + max(hl, hr);
+	return (1 + max(hl, hr));
 }
 /**
  * is_avl - recursively checks if tree is AVL
@@ -60,4 +60,3 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 		return (0);
 	return (is_avl(tree, INT_MIN, INT_MAX));
 }
-
