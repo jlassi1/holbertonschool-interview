@@ -16,7 +16,7 @@ return (1);
 if (*str == *pattern || (*pattern == '.' && *(pattern + 1) != '*'))
 return (regex_match(++str, ++pattern));
 if (*str != *pattern && (*pattern != '.' && *(pattern + 1) == '*'))
-		return (regex_match(str, pattern + 2));
+return (regex_match(str, pattern + 2));
 if (*pattern == '.' && *(pattern + 1) == '*')
 {
 if (!pattern[2])
