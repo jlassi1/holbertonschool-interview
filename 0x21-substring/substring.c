@@ -1,50 +1,123 @@
 # include "substring.h"
-
 /**
- * find_substring - function that finds all the possible
- * substrings containing a list of words, within a given string 
- * 
+ * find_substring - Function that search_word words in string
  * @s: is the string to scan
- * @words: is the array of words all substrings must be a concatenation arrangement of
+ * @words:  is the array of words all substrings
  * @nb_words: is the number of elements in the array words
- * @n: holds the address at which to store the number of elements in the returned array
- * 
- * Return: an allocated array, storing each index in s or NULL if faild
- */
+ * @n: the address at which to store the number of elements in the returned array
+ * Return: array with index for every word or NULL
+ *
+ **/
 int *find_substring(char const *s, char const **words, int nb_words, int *n)
 {
-int size, word_size, j, i = 0, l;
-	int *elements, *found;
+	int *idx, *aux_idx, wordlen, j, diff, s_len, tmp;
+    bool  f_idx;
 
-	if (!s)
-		return (NULL);
-	*n = 0, size = strlen(s), word_size = strlen(words[0]);
-	found = malloc(nb_words * sizeof(int));
-	elements = malloc(size * sizeof(int));
-	while (i <= size - nb_words * word_size)
+	*n = 0;
+	wordlen = (int)strlen(words[0]);
+	s_len = (int)strlen(s);
+	for (j = 0; j < s_len; j++)
 	{
-		for (j = 0; j < nb_words; j++)
-			found[j] = 0;
-		for (j = 0; j < nb_words; j++)
+		aux_idx = search_word(s, words, nb_words);
+		if (!aux_idx)
+			break;
+		qsort(aux_idx, nb_words, sizeof(int), cmp_values);
+		f_idx = check_words(aux_idx, wordlen, nb_words);
+		tmp = aux_idx[nb_words - 1];
+		free(aux_idx);
+		if (f_idx)
 		{
-			for (l = 0; l < nb_words; l++)
+			diff = s_len - tmp;
+			if (*n == 0 || diff != idx[*n - 1])
 			{
-				if (found[l] == 0 &&
-					strncmp(s + i + j * word_size, words[l], word_size) == 0)
+				if (*n == 0)
 				{
-					found[l] = 1;
-					break;
+					idx = malloc((sizeof(int)));
+					if (!idx)
+						return (NULL);
 				}
+				else
+					idx = realloc(idx, sizeof(int) * (*n + 1));
+				idx[*n] = diff;
+				*n += 1;
 			}
-			if (l == nb_words)
-				break;
 		}
-		if (j == nb_words)
-			elements[*(n + 1)] = i;
-		i++;
+		s++;
 	}
-	free(found);
-	return (elements);
+	if (*n == 0)
+		return (NULL);
+	return (idx);
+}
+/**
+ * check_words - Function that chek if all words are continous
+ * @aux_idx: array with index for ever word
+ * @wordlen: word size
+ * @idx_len: aux_idx size
+ * Return: index firt word or zero
+ **/
+bool check_words(int *aux_idx, int wordlen, int idx_len)
+{
+	int i;
 
+	for (i = 0; i < idx_len - 1; i++)
+	{
+		if (aux_idx[i + 1] - aux_idx[i] != wordlen)
+			return (false);
+	}
+	return (true);
+}
+/**
+ * search_word - Function that search words in string
+ * @s: string base
+ * @words: array of words to search in the string
+ * @nb_words: number of words
+ * Return: array with size of substring for every word, otherwise NULL
+ **/
+int *search_word(char const *s, char const **words, int nb_words)
+{
+	int *aux_idx, i, j;
+	char *aux;
+	int len;
 
+	aux_idx = malloc((sizeof(int) * nb_words));
+	if (!aux_idx)
+		return (NULL);
+	for (i = 0; i < nb_words; i++)
+	{
+		aux = strstr(s, words[i]);
+		if (!aux)
+		{
+			free(aux_idx);
+			return (NULL);
+		}
+		len = (int)strlen(aux);
+		for (j = 0; j < i; j++)
+		{
+			if (len == aux_idx[j])
+			{
+				aux = strstr(s + (int)strlen(s) - len + 1, words[i]);
+				if (!aux)
+				{
+					free(aux_idx);
+					return (NULL);
+				}
+				len = (int)strlen(aux);
+				aux_idx[i] = len;
+				continue;
+			}
+		}
+		aux_idx[i] = len;
+	}
+	return (aux_idx);
+}
+
+/**
+ * cmp_values - Function that compare two values
+ * @a: first value
+ * @b: second value
+ * Return: substraction
+ **/
+int cmp_values(const void *a, const void *b)
+{
+	return (*(int *)a - *(int *)b);
 }
