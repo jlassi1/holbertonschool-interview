@@ -4,7 +4,8 @@
  * @s: is the string to scan
  * @words:  is the array of words all substrings
  * @nb_words: is the number of elements in the array words
- * @n: the address at which to store the number of elements in the returned array
+ * @n: the address at which to store the number
+ * of elements in the returned array
  * Return: array with index for every word or NULL
  *
  **/
