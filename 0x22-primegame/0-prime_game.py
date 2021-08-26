@@ -13,8 +13,8 @@ def isWinner(x, nums):
     r = min(x, len(nums))
     winner = {'Maria': 0, 'Ben': 0}
 
-    while(r != 0):
-        for i in nums:
+    for i in nums:
+        while(r != 0):
             w = 'Maria'
             if i == 1:
                 w = 'Ben'
@@ -24,6 +24,7 @@ def isWinner(x, nums):
                         w = 'Maria' if w == 'Ben' else 'Ben'
             winner[w] += 1
             r -= 1
+
     if winner['Ben'] == winner['Maria']:
         return None
     try:
