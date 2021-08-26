@@ -23,7 +23,7 @@ def isWinner(x, nums):
                     if is_prime(j):
                         w = 'Maria' if w == 'Ben' else 'Ben'
             winner[w] += 1
-            r -= 1
+        r -= 1
 
     try:
         return max(winner, key=winner.get)
