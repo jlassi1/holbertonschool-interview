@@ -13,7 +13,7 @@ def isWinner(x, nums):
     r = min(x, len(nums))
     winner = {'Maria': 0, 'Ben': 0}
 
-    while(r >= 0):
+    while(r != 0):
         for i in nums:
             w = 'Maria'
             if i == 1:
@@ -24,9 +24,8 @@ def isWinner(x, nums):
                         w = 'Maria' if w == 'Ben' else 'Ben'
             winner[w] += 1
             r -= 1
-            if r == 0:
-                break
-
+    if winner['Ben'] == winner['Maria']:
+        return None
     try:
         return max(winner, key=winner.get)
     except Exception:
