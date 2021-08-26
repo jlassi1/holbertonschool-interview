@@ -12,7 +12,7 @@ def isWinner(x, nums):
         return None
     r = min(x, len(nums))
     winner = {'Maria': 0, 'Ben': 0}
-    i = 0
+
     while(r != 0):
         for i in nums:
             w = 'Maria'
