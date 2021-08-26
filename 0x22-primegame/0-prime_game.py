@@ -18,11 +18,9 @@ def isWinner(x, nums):
             w = 'Maria'
             if i == 1:
                 w = 'Ben'
-            
             else:
                 for j in range(3, i + 1):
                     if is_prime(j):
-    
                         w = 'Maria' if w == 'Ben' else 'Ben'
             winner[w] += 1
             r -= 1
