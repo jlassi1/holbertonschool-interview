@@ -22,7 +22,7 @@ def isWinner(x, nums):
             else:
                 for j in range(2, i + 1):
                     if is_prime(j):
-                        print(j)
+                        # print(j)
                         w = 'Maria' if w == 'Ben' else 'Ben'
                 winner[w] += 1
             # print('-------------------------------------------')
