@@ -18,15 +18,15 @@ def isWinner(x, nums):
             w = 'Maria'
             if i == 1:
                 w = 'Ben'
+            
             else:
-                for j in range(2, i + 1):
+                for j in range(3, i + 1):
                     if is_prime(j):
-                        # print(j)
+    
                         w = 'Maria' if w == 'Ben' else 'Ben'
             winner[w] += 1
-            # print('-------------------------------------------')
             r -= 1
-    # print(winner)
+
     try:
         return max(winner, key=winner.get)
     except Exception:
