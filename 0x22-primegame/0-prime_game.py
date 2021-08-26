@@ -26,7 +26,7 @@ def isWinner(x, nums):
                         w = 'Maria' if w == 'Ben' else 'Ben'
                 winner[w] += 1
             # print('-------------------------------------------')
-            x -= 1
+            r -= 1
     # print(winner)
     try:
         return max(winner, key=winner.get)
