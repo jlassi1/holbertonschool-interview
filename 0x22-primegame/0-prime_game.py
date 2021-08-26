@@ -8,12 +8,12 @@ def is_prime(a):
 
 def isWinner(x, nums):
     """function that determine who the winner of each game"""
-    if x <= 0 or nums == [] or not nums:
+    if x < 1 or not nums or nums == []:
         return None
-    r = min(x, len(nums))
+    stop = min(x, len(nums))
     winner = {'Maria': 0, 'Ben': 0}
 
-    for j, i in enumerate(nums):
+    for idx, i in enumerate(nums):
         w = 'Maria'
         if i == 1:
             w = 'Ben'
@@ -22,7 +22,7 @@ def isWinner(x, nums):
                 if is_prime(j):
                     w = 'Maria' if w == 'Ben' else 'Ben'
         winner[w] += 1
-        if j == r:
+        if idx == stop:
             break
 
     if winner['Ben'] == winner['Maria']:
