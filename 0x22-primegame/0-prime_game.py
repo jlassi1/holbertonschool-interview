@@ -13,8 +13,7 @@ def isWinner(x, nums):
     r = min(x, len(nums))
     winner = {'Maria': 0, 'Ben': 0}
 
-    for i in nums:
-        while(r != 0):
+    for j ,i in enumerate(nums):
             w = 'Maria'
             if i == 1:
                 w = 'Ben'
@@ -23,7 +22,8 @@ def isWinner(x, nums):
                     if is_prime(j):
                         w = 'Maria' if w == 'Ben' else 'Ben'
             winner[w] += 1
-            r -= 1
+            if j == r:
+                break
 
     if winner['Ben'] == winner['Maria']:
         return None
