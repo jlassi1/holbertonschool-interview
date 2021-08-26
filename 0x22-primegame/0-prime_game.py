@@ -13,17 +13,17 @@ def isWinner(x, nums):
     r = min(x, len(nums))
     winner = {'Maria': 0, 'Ben': 0}
 
-    for j ,i in enumerate(nums):
-            w = 'Maria'
-            if i == 1:
-                w = 'Ben'
-            else:
-                for j in range(3, i + 1):
-                    if is_prime(j):
-                        w = 'Maria' if w == 'Ben' else 'Ben'
-            winner[w] += 1
-            if j == r:
-                break
+    for j, i in enumerate(nums):
+        w = 'Maria'
+        if i == 1:
+            w = 'Ben'
+        else:
+            for j in range(3, i + 1):
+                if is_prime(j):
+                    w = 'Maria' if w == 'Ben' else 'Ben'
+        winner[w] += 1
+        if j == r:
+            break
 
     if winner['Ben'] == winner['Maria']:
         return None
